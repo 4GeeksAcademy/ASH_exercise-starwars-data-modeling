@@ -42,20 +42,20 @@ class StarShips(Base):
 class FavoriteCharacters(Base):
     __tablename__ = 'favoriteCharacters'
     id = Column(Integer, primary_key=True)
-    user_id = Column(Integer, ForeignKey('users.id'))
-    characters_id = Column(Integer, ForeignKey('characters.id'))
+    user_id = Column(Integer, ForeignKey('users.id', nullable=False))
+    characters_id = Column(Integer, ForeignKey('characters.id', nullable=False))
 
 class FavoritePlanets(Base):
     __tablename__ = 'favoritePlanets'
     id = Column(Integer, primary_key=True)
-    user_id = Column(Integer, ForeignKey('users.id'))
-    planets_id = Column(Integer, ForeignKey('planets.id'))
+    user_id = Column(Integer, ForeignKey('users.id', nullable=False))
+    planets_id = Column(Integer, ForeignKey('planets.id', nullable=False))
 
 class FavoriteStarShips(Base):
     __tablename__ = 'favoriteStarShips'
     id = Column(Integer, primary_key=True)
-    user_id = Column(Integer, ForeignKey('users.id'))
-    starShips_id = Column(Integer, ForeignKey('starships.id'))
+    user_id = Column(Integer, ForeignKey('users.id', nullable=False))
+    starShips_id = Column(Integer, ForeignKey('starships.id', nullable=False))
 
 ## Draw from SQLAlchemy base
 render_er(Base, 'diagram.png')
